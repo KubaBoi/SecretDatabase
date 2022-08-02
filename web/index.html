@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/color.css">
+
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>SecretDatabase</title>
+</head>
+<body>
+    <h1>SecretDatabase</h1>
+
+    <form action="/file/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file" multiple><br><br>
+        <input type="submit" value="Nahrát soubor" name="submit">
+    </form>
+    <br>
+    <table id="galleryTable"></table>
+
+    <div id="fullScreen">
+        <span id="beforeImage" onclick="addIterator(-1)"></span>
+        <span id="nextImage" onclick="addIterator()"></span>
+        <span id="closeImage" onclick="closeImageFullScreen()">X</span>
+        <img id="fullImage"></img>
+    </div>
+
+    <script src="https://kubaboi.github.io/CheeseFramework/public/scripts/cheese.js"></script>
+    
+    <script src="./scripts/apiControllers.js"></script>
+    <script src="./scripts/showImage.js"></script>
+    <script src="./scripts/start.js"></script>
+</body>
+</html>
