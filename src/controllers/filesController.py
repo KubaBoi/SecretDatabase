@@ -9,7 +9,7 @@ from Cheese.resourceManager import ResMan
 from src.repositories.filesRepository import FilesRepository
 
 #@controller /file;
-class FileController(cc):
+class FilesController(cc):
 
     #@get /getAll;
     @staticmethod
@@ -23,7 +23,7 @@ class FileController(cc):
     #@post /upload;
     @staticmethod
     def upload(server, path, auth):
-        FileController.deal_post_data(server)
+        FilesController.deal_post_data(server)
 
         return cc.createResponse("<script>window.location='/'</script>")
 
@@ -40,10 +40,10 @@ class FileController(cc):
                 if isinstance(form["file"], list):
                     for record in form["file"]:
                         open(ResMan.web("files", record.filename), "wb").write(record.file.read())
-                        FileController.saveNewFile(record.filename)
+                        FilesController.saveNewFile(record.filename)
                 else:
                     open(ResMan.web("files", form["file"].filename), "wb").write(form["file"].file.read())
-                    FileController.saveNewFile(form["file"].filename)
+                    FilesController.saveNewFile(form["file"].filename)
             except IOError:
                     return (False, "Can't create file to write, do you have permission to write?")
         return (True, "Files uploaded")
