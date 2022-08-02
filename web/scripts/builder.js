@@ -3,6 +3,12 @@ function buildTable() {
     let tbl = document.getElementById("galleryTable");
     clearTable(tbl);
 
+    if (images.length == 0) {
+        addRow(tbl, [
+            {"text": "There have been no images found"}
+        ])
+    }
+
     for (let i = 0; i < images.length; i++) {
         let tags = prepareTags(images[i].TAGS.split(" "));
 
