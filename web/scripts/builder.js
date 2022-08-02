@@ -6,8 +6,11 @@ function buildTable() {
     if (images.length == 0) {
         addRow(tbl, [
             {"text": "There have been no images found"}
-        ])
+        ]);
     }
+
+    let searchCounter = document.getElementById("searchCounter");
+    searchCounter.innerHTML = `Found ${images.length} images`
 
     for (let i = 0; i < images.length; i++) {
         let tags = prepareTags(images[i].TAGS.split(" "));
