@@ -31,5 +31,6 @@ if __name__ == "__main__":
             break
         except:
             time.sleep(1)
+            break
 
     CheeseBurger.serveForever()

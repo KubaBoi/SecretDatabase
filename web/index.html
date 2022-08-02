@@ -3,20 +3,33 @@
 <head>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/color.css">
+    <link rel="stylesheet" href="styles/fullScreenStyle.css">
+    <link rel="stylesheet" href="styles/tagsStyle.css">
+    <link rel="stylesheet" href="styles/operatorStyle.css">
+
+    <link rel="stylesheet" href="https://kubaboi.github.io/CheeseFramework/public/styles/alertStyle.css"> 
 
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>SecretDatabase</title>
+    <title>Secret Database</title>
 </head>
 <body>
-    <h1>SecretDatabase</h1>
+    <h1>Secret Database</h1>
 
     <form action="/file/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" id="file" multiple="multiple"><br><br>
+        <input type="file" name="file" id="file" multiple accept="images/*"><br><br>
         <input type="submit" value="Nahrát soubor" name="submit">
     </form>
-    <br>
+    <hr>
+    <div>
+        <label class="operatorButtActive" onclick="changeOperator(this)">OR</label>
+        <label class="operatorButt" onclick="changeOperator(this)">AND</label>
+    </div>
+    <hr>
+    <div id="mainTags">
+    </div>
+    <hr>
     <table id="galleryTable"></table>
 
     <div id="fullScreen">
@@ -31,6 +44,9 @@
     
     <script src="./scripts/apiControllers.js"></script>
     <script src="./scripts/showImage.js"></script>
+    <script src="./scripts/tagEdit.js"></script>
+    <script src="./scripts/builder.js"></script>
+    <script src="./scripts/tagController.js"></script>
     <script src="./scripts/start.js"></script>
 </body>
 </html>

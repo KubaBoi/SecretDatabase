@@ -4,9 +4,20 @@
 from Cheese.cheeseRepository import CheeseRepository
 
 #@repository files;
-#@dbscheme (id, path, time);
+#@dbscheme (id, path, time, tags);
 #@dbmodel File;
 class FilesRepository(CheeseRepository):
-	pass
+	
+	#@query "select * from files order by time :order;";
+	#@return array;
+	@staticmethod
+	def findAllOrderBy(order):
+		return CheeseRepository.query(order=order)
+
+	#@query "select * from files where :tagsFilter order by time :order;";
+	#@return array;
+	@staticmethod
+	def findByTags(tagsFilter, order):
+		return CheeseRepository.query(tagsFilter=tagsFilter, order=order)
 
 

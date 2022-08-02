@@ -6,6 +6,7 @@ function addIterator(add=1) {
     if (iterator < 0) iterator = images.length -1;
 
     showImageFullScreen();
+    scrollToImage();
 }
 
 function setIterator(index) {
@@ -36,6 +37,14 @@ function downloadImage() {
 	var el = document.createElement("a");
 	el.setAttribute("href", source);
 	el.setAttribute("download", fileName);
+	document.body.appendChild(el);
+ 	el.click();
+	el.remove();
+}
+
+function scrollToImage() {
+	var el = document.createElement("a");
+	el.setAttribute("href", `#image${iterator}`);
 	document.body.appendChild(el);
  	el.click();
 	el.remove();

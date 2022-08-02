@@ -1,0 +1,15 @@
+.operatorButt {
+    background-color: var(--secondary-light-color);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
+    line-height: 35px;
+}
+
+.operatorButtActive {
+    background-color: var(--ok-color);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
+    line-height: 35px;
+}
