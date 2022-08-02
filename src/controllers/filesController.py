@@ -53,6 +53,20 @@ class FilesController(cc):
 
         return cc.createResponse({"FILES": retArray})
 
+    #@get /getByNoneTags;
+    @staticmethod
+    def getByNoneTags(server, path, auth):
+        args = cc.getArgs(path)
+
+        order = "DESC"
+        if (cc.validateJson(["order"], args)): order = args["order"]
+
+        files = FilesRepository.findByTags("tags = ''", order)
+
+        retArray = cc.modulesToJsonArray(files)
+
+        return cc.createResponse({"FILES": retArray})
+
 
     #@post /upload;
     @staticmethod

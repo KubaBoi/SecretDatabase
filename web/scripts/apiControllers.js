@@ -9,6 +9,17 @@ async function loadImagesByTags() {
     }
 }
 
+async function loadImagesByNoneTags() {
+    let response = await callEndpoint("GET", `/file/getByNoneTags`);
+    if (response.ERROR == null) {
+        images = response.FILES;
+        buildTable();
+    }
+    else {
+        showErrorAlert(response.ERROR, alertTime);
+    }
+}
+
 async function loadAllTags() {
     let response = await callEndpoint("GET", "/tags/getAll");
     if (response.ERROR == null) {

@@ -7,6 +7,9 @@ function tagOnClick(tagElem=null) {
         else {
             tagElem.classList.add("mainTagActive");
         }
+
+        let noneTag = document.getElementById("noneTagsSpan");
+        noneTag.setAttribute("class", "mainTag");
     }
 
     tagsString = "";
@@ -20,6 +23,19 @@ function tagOnClick(tagElem=null) {
     }
     tagsString = tagsString.substring(0, tagsString.length - 1);
     loadImagesByTags();
+}
+
+function noneTags() {
+    let tagElems = document.getElementsByClassName("mainTag");
+    for (let i = 0; i < tagElems.length; i++) {
+        let el = tagElems[i];
+        el.setAttribute("class", "mainTag");
+    }
+
+    let noneTag = document.getElementById("noneTagsSpan");
+    noneTag.setAttribute("class", "mainTag mainTagActive");
+
+    loadImagesByNoneTags();
 }
 
 function changeOperator(elem) {

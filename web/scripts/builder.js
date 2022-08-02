@@ -57,7 +57,8 @@ function buildTags() {
     for (let i = 0; i < tagsArray.length; i++) {
         tags.push(tagsArray[i].NAME);
     }
-    let tagsString = prepareTags(tags, "mainTag", "tagOnClick(this)");
+    let tagsString = `<span class="mainTag" onclick="noneTags()" id="noneTagsSpan">None</span>`
+    tagsString += prepareTags(tags, "mainTag", "tagOnClick(this)");
 
     dv.innerHTML = tagsString;
 }
