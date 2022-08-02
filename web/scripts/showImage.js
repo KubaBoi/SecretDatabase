@@ -19,7 +19,7 @@ function showImageOnClick(index) {
 
 function showImageFullScreen() {
     let dv = document.getElementById("fullScreen");
-    dv.style.visibility = "visible";
+    dv.style.left = "0";
 
     let img = document.getElementById("fullImage");
     img.setAttribute("src", `./files/${images[iterator].PATH}`);
@@ -27,5 +27,16 @@ function showImageFullScreen() {
 
 function closeImageFullScreen() {
     let dv = document.getElementById("fullScreen");
-    dv.style.visibility = "hidden";
+    dv.style.left = "-1000%";
+}
+
+function downloadImage() {
+    let source = `./files/${images[iterator].PATH}`;
+    const fileName = source.split('/').pop();
+	var el = document.createElement("a");
+	el.setAttribute("href", source);
+	el.setAttribute("download", fileName);
+	document.body.appendChild(el);
+ 	el.click();
+	el.remove();
 }

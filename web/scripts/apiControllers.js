@@ -9,7 +9,7 @@ async function loadAllImages() {
         for (let i = 0; i < images.length; i++) {
             addRow(tbl, [
                 {
-                    "text": `<img src="./files/${images[i].PATH}" width=100 height=100>`, 
+                    "text": `<img src="./files/${images[i].PATH}" onclick="showImageOnClick(${i})" width=100 height=100>`, 
                     "attributes": [
                         {"name": "onclick", "value": `onclick=showImageOnClick(${i})`}
                     ]
