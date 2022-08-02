@@ -12,6 +12,6 @@ class DbUpdator:
         files = FilesRepository.findAll()
 
         for file in files:
-            if (not os.path.exists(ResMan.web("files", file))):
+            if (not os.path.exists(ResMan.web("files", file.path))):
                 FilesRepository.delete(file)
 
