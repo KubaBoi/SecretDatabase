@@ -29,6 +29,7 @@ function showImageFullScreen() {
 function closeImageFullScreen() {
     let dv = document.getElementById("fullScreen");
     dv.style.left = "-1000%";
+    iterator = -1;
 }
 
 function downloadImage() {
@@ -43,9 +44,5 @@ function downloadImage() {
 }
 
 function scrollToImage() {
-	var el = document.createElement("a");
-	el.setAttribute("href", `#image${iterator}`);
-	document.body.appendChild(el);
- 	el.click();
-	el.remove();
+	window.location = `#image${iterator}`;
 }

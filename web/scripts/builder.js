@@ -17,10 +17,9 @@ function buildTable() {
 
         addRow(tbl, [
             {
-                "text": `<img src="./files/${images[i].PATH}" onclick="showImageOnClick(${i})" id="image${i}" width=100 height=100>`, 
+                "text": `<img src="./files/${images[i].PATH}" onclick="showImageOnClick(${i+1})" id="image${i}" width=100 height=100>`, 
                 "attributes": [
-                    {"name": "class", "value": "imageTd"},
-                    {"name": "onclick", "value": `onclick=showImageOnClick(${i})`}
+                    {"name": "class", "value": "imageTd"}
                 ]
             },
             {
