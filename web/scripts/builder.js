@@ -47,6 +47,9 @@ function prepareTags(tags, cls="tag", onclick="") {
         if (cls == "tag" && tagsString.search(tags[i]) != -1) {
             actCls = "tagActive";
         }  
+        else if (cls == "mainTag"  && tagsString.search(tags[i]) != -1) {
+            actCls = "mainTag mainTagActive";
+        }
 
         let tagElem = createElement("span", null, tags[i], [
             {"name": "class", "value": actCls},
@@ -65,8 +68,8 @@ function buildTags() {
     for (let i = 0; i < tagsArray.length; i++) {
         tags.push(tagsArray[i].NAME);
     }
-    let tagsString = `<span class="mainTag" onclick="noneTags()" id="noneTagsSpan">None</span> `
-    tagsString += prepareTags(tags, "mainTag", "tagOnClick(this)");
+    let tagsElements = `<span class="mainTag" onclick="noneTags()" id="noneTagsSpan">None</span> `
+    tagsElements += prepareTags(tags, "mainTag", "tagOnClick(this)");
 
-    dv.innerHTML = tagsString;
+    dv.innerHTML = tagsElements;
 }
