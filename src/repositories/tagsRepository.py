@@ -15,4 +15,10 @@ class TagsRepository(CheeseRepository):
 	def exists(tag):
 		return CheeseRepository.query(tag=tag)
 
+	#@query "select * from tags order by name ASC;";
+	#@return array;
+	@staticmethod
+	def findAllOrdered():
+		return CheeseRepository.query()
+
 

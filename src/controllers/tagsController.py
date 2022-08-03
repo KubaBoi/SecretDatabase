@@ -1,11 +1,5 @@
 
-import os
-import cgi
-import datetime
-
 from Cheese.cheeseController import CheeseController as cc
-from Cheese.cheeseRepository import CheeseRepository as cr
-from Cheese.resourceManager import ResMan
 from Cheese.httpClientErrors import *
 
 from src.repositories.tagsRepository import TagsRepository
@@ -16,7 +10,7 @@ class TagsController(cc):
     #@get /getAll;
     @staticmethod
     def getAll(server, path, auth):
-        tags = TagsRepository.findAll()
+        tags = TagsRepository.findAllOrdered()
 
         retArray = cc.modulesToJsonArray(tags)
 
