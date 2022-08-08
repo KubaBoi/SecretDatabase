@@ -39,16 +39,20 @@ function buildTable() {
 function prepareTags(tags, cls="tag", onclick="") {
     if (tags == "") return "";
 
+    let tagsStringArray = tagsString.split(",");
+
     let tagsElems = "";
     for (let i = 0; i < tags.length; i++) {
         if (tags[i] == "") continue;
 
         let actCls = cls;
-        if (cls == "tag" && tagsString.search(tags[i]) != -1) {
-            actCls = "tagActive";
-        }  
-        else if (cls == "mainTag"  && tagsString.search(tags[i]) != -1) {
-            actCls = "mainTag mainTagActive";
+        if (tagsStringArray.includes(tags[i])) {
+            if (cls == "tag") {
+                actCls = "tagActive";
+            }  
+            else if (cls == "mainTag") {
+                actCls = "mainTag mainTagActive";
+            }
         }
 
         let tagElem = createElement("span", null, tags[i], [
@@ -71,7 +75,7 @@ function buildTags() {
     
     let noneTagCls = "mainTag";
     if (tagsString == "None") noneTagCls = "mainTagActive";
-    
+
     let tagsElements = `<span class="${noneTagCls}" onclick="noneTags()" id="noneTagsSpan">None</span> `
     tagsElements += prepareTags(tags, "mainTag", "tagOnClick(this)");
 
