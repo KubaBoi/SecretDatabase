@@ -11,6 +11,12 @@ function tagOnClick(tagElem=null) {
         let noneTag = document.getElementById("noneTagsSpan");
         noneTag.setAttribute("class", "mainTag");
     }
+    else {
+        if (tagsString == "None") {
+            loadImagesByNoneTags();
+            return;
+        }
+    }
 
     tagsString = "";
     let tagElems = document.getElementsByClassName("mainTag");
@@ -34,7 +40,8 @@ function noneTags() {
 
     let noneTag = document.getElementById("noneTagsSpan");
     noneTag.setAttribute("class", "mainTag mainTagActive");
-
+    
+    tagsString = "None";
     loadImagesByNoneTags();
 }
 
