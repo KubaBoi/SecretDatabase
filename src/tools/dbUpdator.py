@@ -26,7 +26,7 @@ class DbUpdator:
 
         cr.disableAutocommit()
         for tag in tags:
-            files = FilesRepository.findByTags(f"tags LIKE '%{tag.name}%'", "ASC")
+            files = FilesRepository.findByTags(f"(tags LIKE '% {tag.name} %' or tags LIKE '{tag.name} %' or tags LIKE '% {tag.name}' or tags = '{tag.name}')", "ASC")
             if (files == []):
                 TagsRepository.delete(tag)
 

@@ -37,6 +37,9 @@ class FilesController(cc):
         args = cc.getArgs(path)
         cc.checkJson(["tags", "operator"], args)
 
+        if (args["tags"] == ""):
+            return FilesController.getAll(server, path, auth)
+
         order = "DESC"
         if (cc.validateJson(["order"], args)): order = args["order"]
 
@@ -45,7 +48,7 @@ class FilesController(cc):
 
         tagsFilter = ""
         for i, tag in enumerate(tags):
-            tagsFilter += f"tags LIKE '%{tag}%'"
+            tagsFilter += f"(tags LIKE '% {tag} %' or tags LIKE '{tag} %' or tags LIKE '% {tag}' or tags = '{tag}')"
             if (i < len(tags)-1):
                 tagsFilter += f" {operator} "
 
