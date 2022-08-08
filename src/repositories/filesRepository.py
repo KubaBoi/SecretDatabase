@@ -17,7 +17,7 @@ class FilesRepository(CheeseRepository):
 	#@query "select * from files where :tagsFilter order by time :order;";
 	#@return array;
 	@staticmethod
-	def findByTags(tagsFilter, order):
+	def findByTags(tagsFilter, order="DESC"):
 		return CheeseRepository.query(tagsFilter=tagsFilter, order=order)
 
 

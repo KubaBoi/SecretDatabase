@@ -12,6 +12,8 @@ from src.repositories.filesRepository import FilesRepository
 
 from src.controllers.tagsController import TagsController
 
+from src.tools.dbUpdator import DbUpdator
+
 #@controller /file;
 class FilesController(cc):
 
@@ -89,6 +91,7 @@ class FilesController(cc):
         FilesRepository.update(fileModel)
 
         TagsController.updateTags(args["TAGS"])
+        DbUpdator.updateTags()
 
         return cc.createResponse({"STATUS": "OK"})
 
@@ -108,6 +111,8 @@ class FilesController(cc):
 
         cr.commit()
         cr.enableAutocommit()
+
+        DbUpdator.updateTags()
 
         return cc.createResponse({"STATUS": "OK"})
 
