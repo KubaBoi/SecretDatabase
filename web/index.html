@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles/fullScreenStyle.css">
     <link rel="stylesheet" href="styles/tagsStyle.css">
     <link rel="stylesheet" href="styles/operatorStyle.css">
+    <link rel="stylesheet" href="styles/loadingStyle.css">
 
     <link rel="stylesheet" href="https://kubaboi.github.io/CheeseFramework/public/styles/alertStyle.css"> 
 
@@ -19,8 +20,13 @@
 
     <form action="/file/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" id="file" multiple accept="images/*"><br><br>
-        <input type="submit" value="Nahrát soubor" name="submit">
+        <input type="submit" value="Nahrát soubor" name="submit" onclick="loading()">
     </form>
+    <div class="centerLoading" id="loadingDiv">
+        <span class="loadingBackground"></span>
+        <img src="./images/anime-girl.gif" class="loadingGif">
+        <h1 id="loadingLabel">Uploading...</h1>
+    </div>
     <hr>
     <div>
         <label class="operatorButtActive" onclick="changeOperator(this)">OR</label>
@@ -47,6 +53,7 @@
     <script src="./scripts/tagEdit.js"></script>
     <script src="./scripts/builder.js"></script>
     <script src="./scripts/tagController.js"></script>
+    <script src="./scripts/loadingScript.js"></script>
     <script src="./scripts/start.js"></script>
 </body>
 </html>

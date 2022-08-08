@@ -1,5 +1,6 @@
 var debug = true;
 var alertTime = 3000;
+var loadingTimeout = 200;
 var images = [];
 var tagsArray = [];
 var iterator = -1;
