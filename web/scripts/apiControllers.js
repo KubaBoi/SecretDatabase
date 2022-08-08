@@ -33,10 +33,16 @@ async function loadAllTags() {
 
 async function updateTags(index) {
     let textArea = document.getElementById("textAreaTags");
+    let text = textArea.value;
+
+    if (text.search(/[&=\?%]/g) != -1) {
+        showWrongAlert("Wrong regex", "Invalid characters", alertTime);
+        return;
+    }
 
     let req = {
         "FILE_NAME": images[index].PATH,
-        "TAGS": textArea.value
+        "TAGS": text
     };
 
     let response = await callEndpoint("POST", "/file/update", req);
