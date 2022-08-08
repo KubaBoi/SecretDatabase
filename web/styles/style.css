@@ -8,6 +8,17 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+button {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    background-color: var(--ok-color);
+    color: var(--main-text-color);
+    border-radius: 5px;
+    border-width: 0;
+}
+
 table {
     width: 100%;
 }
