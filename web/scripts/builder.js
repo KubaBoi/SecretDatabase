@@ -1,7 +1,7 @@
 
-function buildTable() {
+function buildTable(clear=true) {
     let tbl = document.getElementById("galleryTable");
-    clearTable(tbl);
+    if (clear) clearTable(tbl);
 
     if (images.length == 0) {
         addRow(tbl, [
@@ -9,10 +9,8 @@ function buildTable() {
         ]);
     }
 
-    let searchCounter = document.getElementById("searchCounter");
-    searchCounter.innerHTML = `Found ${images.length} images`
-
-    for (let i = 0; i < images.length; i++) {
+    for (let i = loaded; i < images.length; i++) {
+        if (i >= imagesPerSite * site) break;
         let tags = prepareTags(images[i].TAGS.split(" "));
 
         addRow(tbl, [
@@ -34,6 +32,19 @@ function buildTable() {
             }
         ]);
     }
+    loaded += imagesPerSite;
+    if (loaded >= images.length) {
+        loaded = images.length;
+        document.getElementById("moreButt").setAttribute("disabled", "true");
+    }
+
+    let searchCounter = document.getElementById("searchCounter");
+    searchCounter.innerHTML = `Found ${images.length} images. Loaded ${loaded}`;
+}
+
+function loadMore() {
+    site++;
+    buildTable(false);
 }
 
 function prepareTags(tags, cls="tag", onclick="") {

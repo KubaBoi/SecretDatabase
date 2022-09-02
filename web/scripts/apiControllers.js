@@ -1,7 +1,11 @@
+
 async function loadImagesByTags() {
     let response = await callEndpoint("GET", `/file/getByTags?tags=${tagsString}&operator=${operator}`);
     if (response.ERROR == null) {
         images = response.FILES;
+        loaded = 0;
+        site = 1;
+        document.getElementById("moreButt").removeAttribute("disabled");
         buildTable();
     }
     else {
@@ -13,6 +17,9 @@ async function loadImagesByNoneTags() {
     let response = await callEndpoint("GET", `/file/getByNoneTags`);
     if (response.ERROR == null) {
         images = response.FILES;
+        loaded = 0;
+        site = 1;
+        document.getElementById("moreButt").removeAttribute("disabled");
         buildTable();
     }
     else {

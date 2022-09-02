@@ -1,9 +1,12 @@
 
 function addIterator(add=1) {
     iterator += add;
-
     if (iterator >= images.length) iterator = 0;
     if (iterator < 0) iterator = images.length -1;
+
+    if (iterator >= loaded) {
+        loadMore();
+    }
 
     showImageFullScreen();
     scrollToImage();
