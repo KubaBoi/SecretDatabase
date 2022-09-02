@@ -23,7 +23,7 @@ class TagsController(cc):
         newTags = newTagsString.strip().split(" ")
 
         for tag in newTags:
-            if (not TagsRepository.exists(tag)):
+            if (not TagsRepository.exists(name=tag)):
                 tagModel = TagsRepository.model()
                 tagModel.setAttrs(
                     name=tag
