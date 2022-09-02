@@ -7,7 +7,7 @@ var iterator = -1;
 var tagsString = "";
 var operator = "OR";
 var loaded = 0;
-var imagesPerSite = 50;
+var imagesPerSite = 20;
 var site = 1;
 
 while (true) {
