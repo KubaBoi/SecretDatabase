@@ -7,20 +7,17 @@ var iterator = -1;
 var tagsString = "";
 var operator = "OR";
 var loaded = 0;
-var imagesPerSite = 80;
+var imagesPerSite = 50;
 var site = 1;
 
-loadAllTags();
-loadImagesByTags();
-
-/*while (true) {
+while (true) {
     let pass = prompt("Enter password");
     if (pass == "heslo12") {
         loadAllTags();
         loadImagesByTags();
         break;
     }
-}*/
+}
 
 document.onclick = function(e) {
     if (iterator != -1) {
