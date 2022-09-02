@@ -7,8 +7,14 @@ var iterator = -1;
 var tagsString = "";
 var operator = "OR";
 
-loadAllTags();
-loadImagesByTags();
+while (true) {
+    let pass = prompt("Enter password");
+    if (pass == "heslo12") {
+        loadAllTags();
+        loadImagesByTags();
+        break;
+    }
+}
 
 document.onclick = function(e) {
     if (iterator != -1) {
