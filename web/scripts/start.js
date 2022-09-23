@@ -12,6 +12,8 @@ var site = 1;
 
 while (true) {
     let pass = prompt("Enter password");
+    // haha you found it
+    // good job ... goo blowjob
     if (pass == "heslo12") {
         loadAllTags();
         loadImagesByTags();
